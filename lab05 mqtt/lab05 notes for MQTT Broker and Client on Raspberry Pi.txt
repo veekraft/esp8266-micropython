@@ -1,0 +1,11 @@
+Raspberry Pi runs mosquitto broker and mosquitto client.
+Raspberry Pi publishes a topic called "ActuatorActivation"
+Raspberry Pi subscribes to a topic called "SensorReading"
+
+Subscribe to topic: 
+pi@rpi4b:~ $ mosquitto_sub -d -t "SensorReading"
+
+Publish to topic:
+pi@rpi4b:~ $ mosquitto_pub -d -t ActuatorActivation -m on
+pi@rpi4b:~ $ mosquitto_pub -d -t ActuatorActivation -m off
+
