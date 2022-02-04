@@ -10,9 +10,17 @@ last_message = 0
 message_interval = 5
 counter = 0
 
+def sub_cb(topic, msg):
+    print((topic, msg))
+    if topic == b'HELLO' and msg == b'hello':
+        print('We got a %s from MQTT' %(str(msg)))
+    else:
+        print('Nothing to see, move along')
+        
 def connect_and_subscribe():
     global client_id, mqtt_server, topic_sub
     client = MQTTClient(client_id, mqtt_server)
+    client.set_callback(sub_cb)
     client.connect()
     client.subscribe(topic_sub)
     print('Connected to %s MQTT broker, subscribed to %s topic' % (mqtt_server, topic_sub))
