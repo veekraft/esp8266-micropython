@@ -14,4 +14,4 @@ for i in range(blinks):
     led.on()
     sleep(sleepT)
     led.off()
-    sleep(sleepTime)
+    sleep(sleepT)
